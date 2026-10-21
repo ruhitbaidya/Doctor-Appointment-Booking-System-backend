@@ -1,10 +1,90 @@
 // use prisma-8
+model Department {
+  id        String @id @default(uuid())
+  dept_name String
+}
+
 model User {
   id        String               @id @default(uuid())
   email     String               @unique
   password  String
+  gender    String
   role      String
   status    boolean()
+  isDelete  boolean()
   createdAt DateTime             @default(now())
   updatedAt temporal.updatedAt()
+}
+
+model Admin {
+  id           String               @id @default(uuid())
+  Name         String
+  userId       String               @unique
+  user         User                 @relation(fields: [userId], references: [id])
+  phoneNumber  String
+  profileImage String
+  createdAt    DateTime             @default(now())
+  updatedAt    temporal.updatedAt()
+}
+
+model Patients {
+  id            String               @id @default(uuid())
+  Name          String
+  dateOfBirth   DateTime
+  userId        String               @unique
+  user          User                 @relation(fields: [userId], references: [id])
+  contactNumber String
+  address       String
+  profilePhoto  String
+  createdAt     DateTime             @default(now())
+  updatedAt     temporal.updatedAt()
+}
+
+model Doctors {
+  id                    String               @id @default(uuid())
+  Name                  String
+  description_degree    String
+  description_treatment String
+  userId                String               @unique
+  user                  User                 @relation(fields: [userId], references: [id])
+  profileImage          String
+  contactNumber         String
+  regastationNumber     String
+  address               String
+  appointmentsFee       Int
+  current_work_place    String
+  dept_id               String
+  departmentId          Department           @relation(fields: [dept_id], references: [id])
+  createdAt             DateTime             @default(now())
+  updatedAt             temporal.updatedAt()
+}
+
+model Appointment {
+  id               String               @id @default(uuid())
+  doct_id          String
+  doctors_id       Doctors              @relation(fields: [doct_id], references: [id])
+  pati_id          String
+  patients_id      Patients             @relation(fields: [pati_id], references: [id])
+  patient_name     String
+  age              Int
+  gender           String
+  serialNumber     Int
+  seeingTime       DateTime
+  status           String
+  appointment_date DateTime
+  createdAt        DateTime             @default(now())
+  updatedAt        temporal.updatedAt()
+}
+
+model DoctorsShadule {
+  id            String               @default(uuid())
+  doct_id       String
+  doctors_id    Doctors              @relation(fields: [doct_id], references: [id])
+  day           Int
+  bookingTime   Time()
+  time_to_start Time()
+  time_to_end   Time()
+  capacity      Int
+  createdAt     DateTime             @default(now())
+  updatedAt     temporal.updatedAt()
 }
