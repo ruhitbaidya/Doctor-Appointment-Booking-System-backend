@@ -1091,7 +1091,13 @@
                   "id"
                 ]
               },
-              "uniques": []
+              "uniques": [
+                {
+                  "columns": [
+                    "dept_name"
+                  ]
+                }
+              ]
             },
             "Doctors": {
               "columns": {
@@ -1482,7 +1488,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "3e8572c9cff8fb4900ffd62191ff5b9e6dbf702e41d3d261c6b22a1f33efb0d8"
+    "storageHash": "bcd1f6827916cbee928264b1390cc96b80116cd1aec17a84b0e1c0d5b006b1d4"
   },
   "execution": {
     "executionHash": "9049c20a61c3004c59c6a76dd0d7f7bbe3ab4725a9e306ea0d36616356abc708",
