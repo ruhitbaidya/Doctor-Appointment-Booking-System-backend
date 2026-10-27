@@ -16,12 +16,20 @@
       "model": "Department",
       "namespace": "public"
     },
+    "DiagnosticCenter": {
+      "model": "DiagnosticCenter",
+      "namespace": "public"
+    },
     "Doctors": {
       "model": "Doctors",
       "namespace": "public"
     },
     "DoctorsShadule": {
       "model": "DoctorsShadule",
+      "namespace": "public"
+    },
+    "Hospital": {
+      "model": "Hospital",
       "namespace": "public"
     },
     "Patients": {
@@ -340,6 +348,123 @@
               "table": "Department"
             }
           },
+          "DiagnosticCenter": {
+            "fields": {
+              "createdAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
+              "established": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "fullName": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "images": {
+                "many": {
+                  "elementNullable": false
+                },
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "location": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "phone": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "services": {
+                "many": {
+                  "elementNullable": false
+                },
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "servicesTime": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "updatedAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {},
+            "storage": {
+              "fields": {
+                "createdAt": {
+                  "column": "createdAt"
+                },
+                "established": {
+                  "column": "established"
+                },
+                "fullName": {
+                  "column": "fullName"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "images": {
+                  "column": "images"
+                },
+                "location": {
+                  "column": "location"
+                },
+                "phone": {
+                  "column": "phone"
+                },
+                "services": {
+                  "column": "services"
+                },
+                "servicesTime": {
+                  "column": "servicesTime"
+                },
+                "updatedAt": {
+                  "column": "updatedAt"
+                }
+              },
+              "namespaceId": "public",
+              "table": "DiagnosticCenter"
+            }
+          },
           "Doctors": {
             "fields": {
               "Name": {
@@ -529,7 +654,7 @@
               "bookingTime": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/time-temporal@1",
+                  "codecId": "pg/time-string@1",
                   "kind": "scalar"
                 }
               },
@@ -571,14 +696,14 @@
               "time_to_end": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/time-temporal@1",
+                  "codecId": "pg/time-string@1",
                   "kind": "scalar"
                 }
               },
               "time_to_start": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/time-temporal@1",
+                  "codecId": "pg/time-string@1",
                   "kind": "scalar"
                 }
               },
@@ -640,6 +765,123 @@
               },
               "namespaceId": "public",
               "table": "DoctorsShadule"
+            }
+          },
+          "Hospital": {
+            "fields": {
+              "createdAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
+              "established": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "fullName": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "images": {
+                "many": {
+                  "elementNullable": false
+                },
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "location": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "phone": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "services": {
+                "many": {
+                  "elementNullable": false
+                },
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "servicesTime": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "updatedAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {},
+            "storage": {
+              "fields": {
+                "createdAt": {
+                  "column": "createdAt"
+                },
+                "established": {
+                  "column": "established"
+                },
+                "fullName": {
+                  "column": "fullName"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "images": {
+                  "column": "images"
+                },
+                "location": {
+                  "column": "location"
+                },
+                "phone": {
+                  "column": "phone"
+                },
+                "services": {
+                  "column": "services"
+                },
+                "servicesTime": {
+                  "column": "servicesTime"
+                },
+                "updatedAt": {
+                  "column": "updatedAt"
+                }
+              },
+              "namespaceId": "public",
+              "table": "Hospital"
             }
           },
           "Patients": {
@@ -1110,6 +1352,86 @@
                 }
               ]
             },
+            "DiagnosticCenter": {
+              "checks": [
+                {
+                  "expression": "array_position(\"images\", NULL) IS NULL",
+                  "name": "DiagnosticCenter_images_elem_not_null_2f12556f",
+                  "prefix": "DiagnosticCenter_images_elem_not_null"
+                },
+                {
+                  "expression": "array_position(\"services\", NULL) IS NULL",
+                  "name": "DiagnosticCenter_services_elem_not_null_4d2c6c0f",
+                  "prefix": "DiagnosticCenter_services_elem_not_null"
+                }
+              ],
+              "columns": {
+                "createdAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "dataType": "pg/timestamptz",
+                  "nullable": false
+                },
+                "established": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "nullable": false
+                },
+                "fullName": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "images": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "many": {
+                    "elementNullable": false
+                  },
+                  "nullable": false
+                },
+                "location": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "phone": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "services": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "many": {
+                    "elementNullable": false
+                  },
+                  "nullable": false
+                },
+                "servicesTime": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "dataType": "pg/timestamptz",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
             "Doctors": {
               "columns": {
                 "Name": {
@@ -1251,7 +1573,7 @@
             "DoctorsShadule": {
               "columns": {
                 "bookingTime": {
-                  "codecId": "pg/time-temporal@1",
+                  "codecId": "pg/time-string@1",
                   "dataType": "pg/time",
                   "nullable": false
                 },
@@ -1281,12 +1603,12 @@
                   "nullable": false
                 },
                 "time_to_end": {
-                  "codecId": "pg/time-temporal@1",
+                  "codecId": "pg/time-string@1",
                   "dataType": "pg/time",
                   "nullable": false
                 },
                 "time_to_start": {
-                  "codecId": "pg/time-temporal@1",
+                  "codecId": "pg/time-string@1",
                   "dataType": "pg/time",
                   "nullable": false
                 },
@@ -1327,6 +1649,91 @@
                   "unique": false
                 }
               ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "Hospital": {
+              "checks": [
+                {
+                  "expression": "array_position(\"images\", NULL) IS NULL",
+                  "name": "Hospital_images_elem_not_null_2f12556f",
+                  "prefix": "Hospital_images_elem_not_null"
+                },
+                {
+                  "expression": "array_position(\"services\", NULL) IS NULL",
+                  "name": "Hospital_services_elem_not_null_4d2c6c0f",
+                  "prefix": "Hospital_services_elem_not_null"
+                }
+              ],
+              "columns": {
+                "createdAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "dataType": "pg/timestamptz",
+                  "nullable": false
+                },
+                "established": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "nullable": false
+                },
+                "fullName": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "images": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "many": {
+                    "elementNullable": false
+                  },
+                  "nullable": false
+                },
+                "location": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "phone": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "services": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "many": {
+                    "elementNullable": false
+                  },
+                  "nullable": false
+                },
+                "servicesTime": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "dataType": "pg/timestamptz",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
               "uniques": []
             },
             "Patients": {
@@ -1491,10 +1898,10 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "0842985c4d65ac1ca4ec9e38cf4fcafd63c5f241a9646c79767da5eda644b3d8"
+    "storageHash": "c3f94f82eff6836773320b7fe5f03c317a891b2b7a534f5adee9f3b0f5b99877"
   },
   "execution": {
-    "executionHash": "1ee1ebde0ba64ffac47335804c980b51c91d943fedf51c55a1dda99b414189ca",
+    "executionHash": "e78ea799e6d41bf98f64b58e8f3c40cccc549c42cc5c843fac65c03bc00ba3ef",
     "mutations": {
       "defaults": [
         {
@@ -1588,6 +1995,43 @@
             "kind": "generator"
           },
           "ref": {
+            "entry": "DiagnosticCenter",
+            "field": "createdAt",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "uuidv4",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "DiagnosticCenter",
+            "field": "id",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "onUpdate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "DiagnosticCenter",
+            "field": "updatedAt",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "ref": {
             "entry": "Doctors",
             "field": "createdAt",
             "namespace": "public"
@@ -1652,6 +2096,43 @@
           },
           "ref": {
             "entry": "DoctorsShadule",
+            "field": "updatedAt",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "Hospital",
+            "field": "createdAt",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "uuidv4",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "Hospital",
+            "field": "id",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "onUpdate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "Hospital",
             "field": "updatedAt",
             "namespace": "public"
           }

@@ -18,9 +18,9 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'0842985c4d65ac1ca4ec9e38cf4fcafd63c5f241a9646c79767da5eda644b3d8'>;
+  StorageHashBase<'c3f94f82eff6836773320b7fe5f03c317a891b2b7a534f5adee9f3b0f5b99877'>;
 export type ExecutionHash =
-  ExecutionHashBase<'1ee1ebde0ba64ffac47335804c980b51c91d943fedf51c55a1dda99b414189ca'>;
+  ExecutionHashBase<'e78ea799e6d41bf98f64b58e8f3c40cccc549c42cc5c843fac65c03bc00ba3ef'>;
 export type ProfileHash =
   ProfileHashBase<'3916f444a8a17ad749191acf9e08dad97d1a327b88c2f1d45d12f240296aa8b2'>;
 
@@ -262,6 +262,18 @@ export type FieldOutputTypes = {
       readonly dept_name: CodecTypes['pg/text@1']['output'];
       readonly id: CodecTypes['pg/text@1']['output'];
     };
+    readonly DiagnosticCenter: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly established: CodecTypes['pg/int4@1']['output'];
+      readonly fullName: CodecTypes['pg/text@1']['output'];
+      readonly id: CodecTypes['pg/text@1']['output'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly location: CodecTypes['pg/text@1']['output'];
+      readonly phone: CodecTypes['pg/text@1']['output'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['output'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    };
     readonly Doctors: {
       readonly Name: CodecTypes['pg/text@1']['output'];
       readonly address: CodecTypes['pg/text@1']['output'];
@@ -279,14 +291,26 @@ export type FieldOutputTypes = {
       readonly userId: CodecTypes['pg/text@1']['output'];
     };
     readonly DoctorsShadule: {
-      readonly bookingTime: CodecTypes['pg/time-temporal@1']['output'];
+      readonly bookingTime: CodecTypes['pg/time-string@1']['output'];
       readonly capacity: CodecTypes['pg/int4@1']['output'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly day: CodecTypes['pg/int4@1']['output'];
       readonly doct_id: CodecTypes['pg/text@1']['output'];
       readonly id: CodecTypes['pg/text@1']['output'];
-      readonly time_to_end: CodecTypes['pg/time-temporal@1']['output'];
-      readonly time_to_start: CodecTypes['pg/time-temporal@1']['output'];
+      readonly time_to_end: CodecTypes['pg/time-string@1']['output'];
+      readonly time_to_start: CodecTypes['pg/time-string@1']['output'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    };
+    readonly Hospital: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly established: CodecTypes['pg/int4@1']['output'];
+      readonly fullName: CodecTypes['pg/text@1']['output'];
+      readonly id: CodecTypes['pg/text@1']['output'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly location: CodecTypes['pg/text@1']['output'];
+      readonly phone: CodecTypes['pg/text@1']['output'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
     readonly Patients: {
@@ -343,6 +367,18 @@ export type FieldInputTypes = {
       readonly dept_name: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['pg/text@1']['input'];
     };
+    readonly DiagnosticCenter: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly established: CodecTypes['pg/int4@1']['input'];
+      readonly fullName: CodecTypes['pg/text@1']['input'];
+      readonly id: CodecTypes['pg/text@1']['input'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly location: CodecTypes['pg/text@1']['input'];
+      readonly phone: CodecTypes['pg/text@1']['input'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['input'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+    };
     readonly Doctors: {
       readonly Name: CodecTypes['pg/text@1']['input'];
       readonly address: CodecTypes['pg/text@1']['input'];
@@ -360,14 +396,26 @@ export type FieldInputTypes = {
       readonly userId: CodecTypes['pg/text@1']['input'];
     };
     readonly DoctorsShadule: {
-      readonly bookingTime: CodecTypes['pg/time-temporal@1']['input'];
+      readonly bookingTime: CodecTypes['pg/time-string@1']['input'];
       readonly capacity: CodecTypes['pg/int4@1']['input'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly day: CodecTypes['pg/int4@1']['input'];
       readonly doct_id: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['pg/text@1']['input'];
-      readonly time_to_end: CodecTypes['pg/time-temporal@1']['input'];
-      readonly time_to_start: CodecTypes['pg/time-temporal@1']['input'];
+      readonly time_to_end: CodecTypes['pg/time-string@1']['input'];
+      readonly time_to_start: CodecTypes['pg/time-string@1']['input'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+    };
+    readonly Hospital: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly established: CodecTypes['pg/int4@1']['input'];
+      readonly fullName: CodecTypes['pg/text@1']['input'];
+      readonly id: CodecTypes['pg/text@1']['input'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly location: CodecTypes['pg/text@1']['input'];
+      readonly phone: CodecTypes['pg/text@1']['input'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
     readonly Patients: {
@@ -424,6 +472,18 @@ export type StorageColumnTypes = {
       readonly dept_name: CodecTypes['pg/text@1']['output'];
       readonly id: CodecTypes['pg/text@1']['output'];
     };
+    readonly DiagnosticCenter: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly established: CodecTypes['pg/int4@1']['output'];
+      readonly fullName: CodecTypes['pg/text@1']['output'];
+      readonly id: CodecTypes['pg/text@1']['output'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly location: CodecTypes['pg/text@1']['output'];
+      readonly phone: CodecTypes['pg/text@1']['output'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['output'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    };
     readonly Doctors: {
       readonly address: CodecTypes['pg/text@1']['output'];
       readonly appointmentsFee: CodecTypes['pg/int4@1']['output'];
@@ -441,14 +501,26 @@ export type StorageColumnTypes = {
       readonly userId: CodecTypes['pg/text@1']['output'];
     };
     readonly DoctorsShadule: {
-      readonly bookingTime: CodecTypes['pg/time-temporal@1']['output'];
+      readonly bookingTime: CodecTypes['pg/time-string@1']['output'];
       readonly capacity: CodecTypes['pg/int4@1']['output'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly day: CodecTypes['pg/int4@1']['output'];
       readonly doct_id: CodecTypes['pg/text@1']['output'];
       readonly id: CodecTypes['pg/text@1']['output'];
-      readonly time_to_end: CodecTypes['pg/time-temporal@1']['output'];
-      readonly time_to_start: CodecTypes['pg/time-temporal@1']['output'];
+      readonly time_to_end: CodecTypes['pg/time-string@1']['output'];
+      readonly time_to_start: CodecTypes['pg/time-string@1']['output'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    };
+    readonly Hospital: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly established: CodecTypes['pg/int4@1']['output'];
+      readonly fullName: CodecTypes['pg/text@1']['output'];
+      readonly id: CodecTypes['pg/text@1']['output'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly location: CodecTypes['pg/text@1']['output'];
+      readonly phone: CodecTypes['pg/text@1']['output'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
     readonly Patients: {
@@ -505,6 +577,18 @@ export type StorageColumnInputTypes = {
       readonly dept_name: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['pg/text@1']['input'];
     };
+    readonly DiagnosticCenter: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly established: CodecTypes['pg/int4@1']['input'];
+      readonly fullName: CodecTypes['pg/text@1']['input'];
+      readonly id: CodecTypes['pg/text@1']['input'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly location: CodecTypes['pg/text@1']['input'];
+      readonly phone: CodecTypes['pg/text@1']['input'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['input'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+    };
     readonly Doctors: {
       readonly address: CodecTypes['pg/text@1']['input'];
       readonly appointmentsFee: CodecTypes['pg/int4@1']['input'];
@@ -522,14 +606,26 @@ export type StorageColumnInputTypes = {
       readonly userId: CodecTypes['pg/text@1']['input'];
     };
     readonly DoctorsShadule: {
-      readonly bookingTime: CodecTypes['pg/time-temporal@1']['input'];
+      readonly bookingTime: CodecTypes['pg/time-string@1']['input'];
       readonly capacity: CodecTypes['pg/int4@1']['input'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly day: CodecTypes['pg/int4@1']['input'];
       readonly doct_id: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['pg/text@1']['input'];
-      readonly time_to_end: CodecTypes['pg/time-temporal@1']['input'];
-      readonly time_to_start: CodecTypes['pg/time-temporal@1']['input'];
+      readonly time_to_end: CodecTypes['pg/time-string@1']['input'];
+      readonly time_to_start: CodecTypes['pg/time-string@1']['input'];
+      readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+    };
+    readonly Hospital: {
+      readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly established: CodecTypes['pg/int4@1']['input'];
+      readonly fullName: CodecTypes['pg/text@1']['input'];
+      readonly id: CodecTypes['pg/text@1']['input'];
+      readonly images: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly location: CodecTypes['pg/text@1']['input'];
+      readonly phone: CodecTypes['pg/text@1']['input'];
+      readonly services: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
+      readonly servicesTime: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
     readonly Patients: {
@@ -592,6 +688,19 @@ export namespace Models {
     id: CodecTypes['pg/text@1']['output'];
     readonly [RelationKeys]?: never;
   };
+  export type public_DiagnosticCenter = {
+    createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    established: CodecTypes['pg/int4@1']['output'];
+    fullName: CodecTypes['pg/text@1']['output'];
+    id: CodecTypes['pg/text@1']['output'];
+    images: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+    location: CodecTypes['pg/text@1']['output'];
+    phone: CodecTypes['pg/text@1']['output'];
+    services: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+    servicesTime: CodecTypes['pg/text@1']['output'];
+    updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    readonly [RelationKeys]?: never;
+  };
   export type public_Doctors = {
     Name: CodecTypes['pg/text@1']['output'];
     address: CodecTypes['pg/text@1']['output'];
@@ -612,17 +721,30 @@ export namespace Models {
     readonly [RelationKeys]?: 'departmentId' | 'user';
   };
   export type public_DoctorsShadule = {
-    bookingTime: CodecTypes['pg/time-temporal@1']['output'];
+    bookingTime: CodecTypes['pg/time-string@1']['output'];
     capacity: CodecTypes['pg/int4@1']['output'];
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     day: CodecTypes['pg/int4@1']['output'];
     doct_id: CodecTypes['pg/text@1']['output'];
     id: CodecTypes['pg/text@1']['output'];
-    time_to_end: CodecTypes['pg/time-temporal@1']['output'];
-    time_to_start: CodecTypes['pg/time-temporal@1']['output'];
+    time_to_end: CodecTypes['pg/time-string@1']['output'];
+    time_to_start: CodecTypes['pg/time-string@1']['output'];
     updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     doctors_id: public_Doctors;
     readonly [RelationKeys]?: 'doctors_id';
+  };
+  export type public_Hospital = {
+    createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    established: CodecTypes['pg/int4@1']['output'];
+    fullName: CodecTypes['pg/text@1']['output'];
+    id: CodecTypes['pg/text@1']['output'];
+    images: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+    location: CodecTypes['pg/text@1']['output'];
+    phone: CodecTypes['pg/text@1']['output'];
+    services: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
+    servicesTime: CodecTypes['pg/text@1']['output'];
+    updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+    readonly [RelationKeys]?: never;
   };
   export type public_Patients = {
     Name: CodecTypes['pg/text@1']['output'];
@@ -656,8 +778,10 @@ export declare const models: {
     Admin: Models.public_Admin;
     Appointment: Models.public_Appointment;
     Department: Models.public_Department;
+    DiagnosticCenter: Models.public_DiagnosticCenter;
     Doctors: Models.public_Doctors;
     DoctorsShadule: Models.public_DoctorsShadule;
+    Hospital: Models.public_Hospital;
     Patients: Models.public_Patients;
     User: Models.public_User;
   };
@@ -892,6 +1016,74 @@ type ContractBase = Omit<
               indexes: readonly [];
               foreignKeys: readonly [];
             };
+            readonly DiagnosticCenter: {
+              columns: {
+                readonly createdAt: {
+                  readonly dataType: 'pg/timestamptz';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly established: {
+                  readonly dataType: 'pg/int4';
+                  readonly codecId: 'pg/int4@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly fullName: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly id: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly images: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: { readonly elementNullable: false };
+                };
+                readonly location: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly phone: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly services: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: { readonly elementNullable: false };
+                };
+                readonly servicesTime: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly updatedAt: {
+                  readonly dataType: 'pg/timestamptz';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+              };
+              primaryKey: { readonly columns: readonly ['id'] };
+              uniques: readonly [];
+              indexes: readonly [];
+              foreignKeys: readonly [];
+            };
             readonly Doctors: {
               columns: {
                 readonly Name: {
@@ -1020,7 +1212,7 @@ type ContractBase = Omit<
               columns: {
                 readonly bookingTime: {
                   readonly dataType: 'pg/time';
-                  readonly codecId: 'pg/time-temporal@1';
+                  readonly codecId: 'pg/time-string@1';
                   readonly nullable: false;
                   readonly many: false;
                 };
@@ -1056,13 +1248,13 @@ type ContractBase = Omit<
                 };
                 readonly time_to_end: {
                   readonly dataType: 'pg/time';
-                  readonly codecId: 'pg/time-temporal@1';
+                  readonly codecId: 'pg/time-string@1';
                   readonly nullable: false;
                   readonly many: false;
                 };
                 readonly time_to_start: {
                   readonly dataType: 'pg/time';
-                  readonly codecId: 'pg/time-temporal@1';
+                  readonly codecId: 'pg/time-string@1';
                   readonly nullable: false;
                   readonly many: false;
                 };
@@ -1073,6 +1265,7 @@ type ContractBase = Omit<
                   readonly many: false;
                 };
               };
+              primaryKey: { readonly columns: readonly ['id'] };
               uniques: readonly [];
               indexes: readonly [
                 {
@@ -1096,6 +1289,74 @@ type ContractBase = Omit<
                   };
                 },
               ];
+            };
+            readonly Hospital: {
+              columns: {
+                readonly createdAt: {
+                  readonly dataType: 'pg/timestamptz';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly established: {
+                  readonly dataType: 'pg/int4';
+                  readonly codecId: 'pg/int4@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly fullName: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly id: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly images: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: { readonly elementNullable: false };
+                };
+                readonly location: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly phone: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly services: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: { readonly elementNullable: false };
+                };
+                readonly servicesTime: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly updatedAt: {
+                  readonly dataType: 'pg/timestamptz';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+              };
+              primaryKey: { readonly columns: readonly ['id'] };
+              uniques: readonly [];
+              indexes: readonly [];
+              foreignKeys: readonly [];
             };
             readonly Patients: {
               columns: {
@@ -1262,11 +1523,16 @@ type ContractBase = Omit<
       readonly namespace: 'public' & NamespaceId;
       readonly model: 'Department';
     };
+    readonly DiagnosticCenter: {
+      readonly namespace: 'public' & NamespaceId;
+      readonly model: 'DiagnosticCenter';
+    };
     readonly Doctors: { readonly namespace: 'public' & NamespaceId; readonly model: 'Doctors' };
     readonly DoctorsShadule: {
       readonly namespace: 'public' & NamespaceId;
       readonly model: 'DoctorsShadule';
     };
+    readonly Hospital: { readonly namespace: 'public' & NamespaceId; readonly model: 'Hospital' };
     readonly Patients: { readonly namespace: 'public' & NamespaceId; readonly model: 'Patients' };
     readonly User: { readonly namespace: 'public' & NamespaceId; readonly model: 'User' };
   };
@@ -1470,6 +1736,75 @@ type ContractBase = Omit<
               };
             };
           };
+          readonly DiagnosticCenter: {
+            readonly fields: {
+              readonly createdAt: {
+                readonly nullable: false;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                };
+              };
+              readonly established: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
+              };
+              readonly fullName: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly id: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly images: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+                readonly many: { readonly elementNullable: false };
+              };
+              readonly location: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly phone: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly services: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+                readonly many: { readonly elementNullable: false };
+              };
+              readonly servicesTime: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly updatedAt: {
+                readonly nullable: false;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                };
+              };
+            };
+            readonly relations: Record<string, never>;
+            readonly storage: {
+              readonly table: 'DiagnosticCenter';
+              readonly namespaceId: 'public';
+              readonly fields: {
+                readonly createdAt: { readonly column: 'createdAt' };
+                readonly established: { readonly column: 'established' };
+                readonly fullName: { readonly column: 'fullName' };
+                readonly id: { readonly column: 'id' };
+                readonly images: { readonly column: 'images' };
+                readonly location: { readonly column: 'location' };
+                readonly phone: { readonly column: 'phone' };
+                readonly services: { readonly column: 'services' };
+                readonly servicesTime: { readonly column: 'servicesTime' };
+                readonly updatedAt: { readonly column: 'updatedAt' };
+              };
+            };
+          };
           readonly Doctors: {
             readonly fields: {
               readonly Name: {
@@ -1583,7 +1918,7 @@ type ContractBase = Omit<
             readonly fields: {
               readonly bookingTime: {
                 readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/time-temporal@1' };
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/time-string@1' };
               };
               readonly capacity: {
                 readonly nullable: false;
@@ -1610,11 +1945,11 @@ type ContractBase = Omit<
               };
               readonly time_to_end: {
                 readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/time-temporal@1' };
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/time-string@1' };
               };
               readonly time_to_start: {
                 readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/time-temporal@1' };
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/time-string@1' };
               };
               readonly updatedAt: {
                 readonly nullable: false;
@@ -1650,6 +1985,75 @@ type ContractBase = Omit<
                 readonly id: { readonly column: 'id' };
                 readonly time_to_end: { readonly column: 'time_to_end' };
                 readonly time_to_start: { readonly column: 'time_to_start' };
+                readonly updatedAt: { readonly column: 'updatedAt' };
+              };
+            };
+          };
+          readonly Hospital: {
+            readonly fields: {
+              readonly createdAt: {
+                readonly nullable: false;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                };
+              };
+              readonly established: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
+              };
+              readonly fullName: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly id: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly images: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+                readonly many: { readonly elementNullable: false };
+              };
+              readonly location: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly phone: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly services: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+                readonly many: { readonly elementNullable: false };
+              };
+              readonly servicesTime: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly updatedAt: {
+                readonly nullable: false;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'pg/timestamptz-string@1';
+                };
+              };
+            };
+            readonly relations: Record<string, never>;
+            readonly storage: {
+              readonly table: 'Hospital';
+              readonly namespaceId: 'public';
+              readonly fields: {
+                readonly createdAt: { readonly column: 'createdAt' };
+                readonly established: { readonly column: 'established' };
+                readonly fullName: { readonly column: 'fullName' };
+                readonly id: { readonly column: 'id' };
+                readonly images: { readonly column: 'images' };
+                readonly location: { readonly column: 'location' };
+                readonly phone: { readonly column: 'phone' };
+                readonly services: { readonly column: 'services' };
+                readonly servicesTime: { readonly column: 'servicesTime' };
                 readonly updatedAt: { readonly column: 'updatedAt' };
               };
             };
@@ -1888,6 +2292,31 @@ type ContractBase = Omit<
         {
           readonly onCreate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
           readonly ref: {
+            readonly entry: 'DiagnosticCenter';
+            readonly field: 'createdAt';
+            readonly namespace: 'public';
+          };
+        },
+        {
+          readonly onCreate: { readonly id: 'uuidv4'; readonly kind: 'generator' };
+          readonly ref: {
+            readonly entry: 'DiagnosticCenter';
+            readonly field: 'id';
+            readonly namespace: 'public';
+          };
+        },
+        {
+          readonly onCreate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
+          readonly onUpdate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
+          readonly ref: {
+            readonly entry: 'DiagnosticCenter';
+            readonly field: 'updatedAt';
+            readonly namespace: 'public';
+          };
+        },
+        {
+          readonly onCreate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
+          readonly ref: {
             readonly entry: 'Doctors';
             readonly field: 'createdAt';
             readonly namespace: 'public';
@@ -1931,6 +2360,31 @@ type ContractBase = Omit<
           readonly onUpdate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
           readonly ref: {
             readonly entry: 'DoctorsShadule';
+            readonly field: 'updatedAt';
+            readonly namespace: 'public';
+          };
+        },
+        {
+          readonly onCreate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
+          readonly ref: {
+            readonly entry: 'Hospital';
+            readonly field: 'createdAt';
+            readonly namespace: 'public';
+          };
+        },
+        {
+          readonly onCreate: { readonly id: 'uuidv4'; readonly kind: 'generator' };
+          readonly ref: {
+            readonly entry: 'Hospital';
+            readonly field: 'id';
+            readonly namespace: 'public';
+          };
+        },
+        {
+          readonly onCreate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
+          readonly onUpdate: { readonly id: 'timestampNow'; readonly kind: 'generator' };
+          readonly ref: {
+            readonly entry: 'Hospital';
             readonly field: 'updatedAt';
             readonly namespace: 'public';
           };

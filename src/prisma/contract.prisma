@@ -78,14 +78,42 @@ model Appointment {
 }
 
 model DoctorsShadule {
-  id            String                     @default(uuid())
+  id            String                     @id @default(uuid())
   doct_id       String
   doctors_id    Doctors                    @relation(fields: [doct_id], references: [id])
   day           Int
-  bookingTime   Time()
-  time_to_start Time()
-  time_to_end   Time()
+  bookingTime   TimeString
+  time_to_start TimeString
+  time_to_end   TimeString
   capacity      Int
   createdAt     temporal.createdAtString()
   updatedAt     temporal.updatedAtString()
+}
+
+model DiagnosticCenter {
+  id           String                     @id @default(uuid())
+  fullName     String
+  phone        String
+  location     String
+  services     String[]
+  servicesTime String
+  images       String[]
+  established  Int
+
+  createdAt    temporal.createdAtString()
+  updatedAt    temporal.updatedAtString()
+}
+
+model Hospital {
+  id           String                     @id @default(uuid())
+  fullName     String
+  phone        String
+  location     String
+  services     String[]
+  servicesTime String
+  images       String[]
+  established  Int
+
+  createdAt    temporal.createdAtString()
+  updatedAt    temporal.updatedAtString()
 }
