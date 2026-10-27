@@ -5,48 +5,48 @@ model Department {
 }
 
 model User {
-  id        String               @id @default(uuid())
-  email     String               @unique
+  id        String                     @id @default(uuid())
+  email     String                     @unique
   password  String
   gender    String
   role      String
-  status    boolean()
-  isDelete  boolean()
-  createdAt DateTime             @default(now())
-  updatedAt temporal.updatedAt()
+  status    Boolean                    @default(true)
+  isDelete  Boolean                    @default(false)
+  createdAt temporal.createdAtString()
+  updatedAt temporal.updatedAtString()
 }
 
 model Admin {
-  id           String               @id @default(uuid())
+  id           String                     @id @default(uuid())
   Name         String
-  userId       String               @unique
-  user         User                 @relation(fields: [userId], references: [id])
+  userId       String                     @unique
+  user         User                       @relation(fields: [userId], references: [id])
   phoneNumber  String
   profileImage String
-  createdAt    DateTime             @default(now())
-  updatedAt    temporal.updatedAt()
+  createdAt    temporal.createdAtString()
+  updatedAt    temporal.updatedAtString()
 }
 
 model Patients {
-  id            String               @id @default(uuid())
+  id            String                     @id @default(uuid())
   Name          String
-  dateOfBirth   DateTime
-  userId        String               @unique
-  user          User                 @relation(fields: [userId], references: [id])
+  dateOfBirth   TimestamptzString
+  userId        String                     @unique
+  user          User                       @relation(fields: [userId], references: [id])
   contactNumber String
   address       String
   profilePhoto  String
-  createdAt     DateTime             @default(now())
-  updatedAt     temporal.updatedAt()
+  createdAt     temporal.createdAtString()
+  updatedAt     temporal.updatedAtString()
 }
 
 model Doctors {
-  id                    String               @id @default(uuid())
+  id                    String                     @id @default(uuid())
   Name                  String
   description_degree    String
   description_treatment String
-  userId                String               @unique
-  user                  User                 @relation(fields: [userId], references: [id])
+  userId                String                     @unique
+  user                  User                       @relation(fields: [userId], references: [id])
   profileImage          String
   contactNumber         String
   regastationNumber     String
@@ -54,17 +54,17 @@ model Doctors {
   appointmentsFee       Int
   current_work_place    String
   dept_id               String
-  departmentId          Department           @relation(fields: [dept_id], references: [id])
-  createdAt             DateTime             @default(now())
-  updatedAt             temporal.updatedAt()
+  departmentId          Department                 @relation(fields: [dept_id], references: [id])
+  createdAt             temporal.createdAtString()
+  updatedAt             temporal.updatedAtString()
 }
 
 model Appointment {
-  id               String               @id @default(uuid())
+  id               String                     @id @default(uuid())
   doct_id          String
-  doctors_id       Doctors              @relation(fields: [doct_id], references: [id])
+  doctors_id       Doctors                    @relation(fields: [doct_id], references: [id])
   pati_id          String
-  patients_id      Patients             @relation(fields: [pati_id], references: [id])
+  patients_id      Patients                   @relation(fields: [pati_id], references: [id])
   patient_name     String
   age              Int
   gender           String
@@ -72,19 +72,19 @@ model Appointment {
   seeingTime       DateTime
   status           String
   appointment_date DateTime
-  createdAt        DateTime             @default(now())
-  updatedAt        temporal.updatedAt()
+  createdAt        temporal.createdAtString()
+  updatedAt        temporal.updatedAtString()
 }
 
 model DoctorsShadule {
-  id            String               @default(uuid())
+  id            String                     @default(uuid())
   doct_id       String
-  doctors_id    Doctors              @relation(fields: [doct_id], references: [id])
+  doctors_id    Doctors                    @relation(fields: [doct_id], references: [id])
   day           Int
   bookingTime   Time()
   time_to_start Time()
   time_to_end   Time()
   capacity      Int
-  createdAt     DateTime             @default(now())
-  updatedAt     temporal.updatedAt()
+  createdAt     temporal.createdAtString()
+  updatedAt     temporal.updatedAtString()
 }

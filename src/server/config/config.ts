@@ -7,6 +7,7 @@ export const config = {
   databaseName : process.env.DATABASE_URL,
   port : process.env.PORT,
   secrate : process.env.jWT_SECRATE,
-  node_env : process.env.NODE_ENV
+  node_env : process.env.NODE_ENV,
+  salt_round : process.env.ROUND_SALT
 }
 
