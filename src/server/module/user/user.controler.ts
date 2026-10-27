@@ -28,7 +28,24 @@ const createPatient = async (req: Request, res: Response) => {
   }
 };
 
+const createAdmin = async (req: Request, res: Response) => {
+  try {
+    const result = await usersCreate.cerateAdmin(req.body);
+    res.status(201).json({
+      success: true,
+      message: "Admin create success",
+      result,
+    });
+  } catch (err: any) {
+    res.status(400).json({
+      success: false,
+      message: "Admin create failed",
+      data: err.message,
+    });
+  }
+};
 export const userControler = {
   createDoctors,
-  createPatient
+  createPatient,
+  createAdmin
 }

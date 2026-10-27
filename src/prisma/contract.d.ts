@@ -18,7 +18,7 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'9a1a2c192c471db8216a35d5a11d33d3e2687feb40ece2d169d0cef6619f0eac'>;
+  StorageHashBase<'0842985c4d65ac1ca4ec9e38cf4fcafd63c5f241a9646c79767da5eda644b3d8'>;
 export type ExecutionHash =
   ExecutionHashBase<'1ee1ebde0ba64ffac47335804c980b51c91d943fedf51c55a1dda99b414189ca'>;
 export type ProfileHash =
@@ -238,6 +238,7 @@ export type FieldOutputTypes = {
       readonly Name: CodecTypes['pg/text@1']['output'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly id: CodecTypes['pg/text@1']['output'];
+      readonly isDelete: CodecTypes['pg/bool@1']['output'];
       readonly phoneNumber: CodecTypes['pg/text@1']['output'];
       readonly profileImage: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
@@ -318,6 +319,7 @@ export type FieldInputTypes = {
       readonly Name: CodecTypes['pg/text@1']['input'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly id: CodecTypes['pg/text@1']['input'];
+      readonly isDelete: CodecTypes['pg/bool@1']['input'];
       readonly phoneNumber: CodecTypes['pg/text@1']['input'];
       readonly profileImage: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
@@ -397,6 +399,7 @@ export type StorageColumnTypes = {
     readonly Admin: {
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly id: CodecTypes['pg/text@1']['output'];
+      readonly isDelete: CodecTypes['pg/bool@1']['output'];
       readonly Name: CodecTypes['pg/text@1']['output'];
       readonly phoneNumber: CodecTypes['pg/text@1']['output'];
       readonly profileImage: CodecTypes['pg/text@1']['output'];
@@ -477,6 +480,7 @@ export type StorageColumnInputTypes = {
     readonly Admin: {
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly id: CodecTypes['pg/text@1']['input'];
+      readonly isDelete: CodecTypes['pg/bool@1']['input'];
       readonly Name: CodecTypes['pg/text@1']['input'];
       readonly phoneNumber: CodecTypes['pg/text@1']['input'];
       readonly profileImage: CodecTypes['pg/text@1']['input'];
@@ -558,6 +562,7 @@ export namespace Models {
     Name: CodecTypes['pg/text@1']['output'];
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     id: CodecTypes['pg/text@1']['output'];
+    isDelete: CodecTypes['pg/bool@1']['output'];
     phoneNumber: CodecTypes['pg/text@1']['output'];
     profileImage: CodecTypes['pg/text@1']['output'];
     updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
@@ -694,6 +699,16 @@ type ContractBase = Omit<
                   readonly dataType: 'pg/text';
                   readonly codecId: 'pg/text@1';
                   readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly isDelete: {
+                  readonly dataType: 'pg/bool';
+                  readonly codecId: 'pg/bool@1';
+                  readonly nullable: false;
+                  readonly default: {
+                    readonly kind: 'literal';
+                    readonly value: DefaultLiteralValue<'pg/bool@1', false>;
+                  };
                   readonly many: false;
                 };
                 readonly phoneNumber: {
@@ -1276,6 +1291,10 @@ type ContractBase = Omit<
                 readonly nullable: false;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
               };
+              readonly isDelete: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/bool@1' };
+              };
               readonly phoneNumber: {
                 readonly nullable: false;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
@@ -1314,6 +1333,7 @@ type ContractBase = Omit<
                 readonly Name: { readonly column: 'Name' };
                 readonly createdAt: { readonly column: 'createdAt' };
                 readonly id: { readonly column: 'id' };
+                readonly isDelete: { readonly column: 'isDelete' };
                 readonly phoneNumber: { readonly column: 'phoneNumber' };
                 readonly profileImage: { readonly column: 'profileImage' };
                 readonly updatedAt: { readonly column: 'updatedAt' };

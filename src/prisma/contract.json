@@ -60,6 +60,13 @@
                   "kind": "scalar"
                 }
               },
+              "isDelete": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/bool@1",
+                  "kind": "scalar"
+                }
+              },
               "phoneNumber": {
                 "nullable": false,
                 "type": {
@@ -117,6 +124,9 @@
                 },
                 "id": {
                   "column": "id"
+                },
+                "isDelete": {
+                  "column": "isDelete"
                 },
                 "phoneNumber": {
                   "column": "phoneNumber"
@@ -877,6 +887,15 @@
                   "dataType": "pg/text",
                   "nullable": false
                 },
+                "isDelete": {
+                  "codecId": "pg/bool@1",
+                  "dataType": "pg/bool",
+                  "default": {
+                    "kind": "literal",
+                    "value": false
+                  },
+                  "nullable": false
+                },
                 "phoneNumber": {
                   "codecId": "pg/text@1",
                   "dataType": "pg/text",
@@ -1472,7 +1491,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "9a1a2c192c471db8216a35d5a11d33d3e2687feb40ece2d169d0cef6619f0eac"
+    "storageHash": "0842985c4d65ac1ca4ec9e38cf4fcafd63c5f241a9646c79767da5eda644b3d8"
   },
   "execution": {
     "executionHash": "1ee1ebde0ba64ffac47335804c980b51c91d943fedf51c55a1dda99b414189ca",

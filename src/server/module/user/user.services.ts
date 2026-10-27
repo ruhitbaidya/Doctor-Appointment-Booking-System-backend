@@ -1,6 +1,6 @@
 import { db } from "../../../prisma/db";
 import { config } from "../../config/config";
-import type { IDoctor, Ipatient } from "./user.interface";
+import type { IAdmin, IDoctor, Ipatient } from "./user.interface";
 import bcrypt from "bcrypt"
 
 const createDoctors = async(data:IDoctor)=>{
@@ -68,7 +68,37 @@ const createPatient = async (data: Ipatient) => {
   return result;
 };
 
+
+  const cerateAdmin = async (data: IAdmin) => {
+  const hashpass = await bcrypt.hash(
+    data.userId.password,
+    Number(config.salt_round)
+  );
+
+  const result = await db.transaction(async (tx) => {
+    const userc = await tx.orm.public.User.create({
+      email: data.userId.email,
+      password: hashpass,
+      gender: data.userId.gender,
+      role: "ADMIN",
+    });
+
+    const createdAdmin = await tx.orm.public.Admin.create({
+      Name: data.name,
+      phoneNumber: data.phoneNumber,
+      profileImage: data.profileImage,
+      userId: userc.id,
+    });
+
+    const { password, ...safeUser } = userc;
+    return { createdAdmin, user: safeUser };
+  });
+
+  return result;
+};
+
 export const usersCreate = {
   createDoctors,
-  createPatient
+  createPatient,
+  cerateAdmin
 }

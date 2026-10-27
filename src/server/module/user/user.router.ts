@@ -7,5 +7,5 @@ const userRouter = express.Router();
 
 userRouter.post("/create-doctors", userControler.createDoctors)
 userRouter.post("/create-patients", userControler.createPatient)
-
+userRouter.post("/create-admin", userControler.createAdmin)
 export default userRouter

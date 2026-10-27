@@ -27,3 +27,10 @@ export type Ipatient = {
   address: string;
   profileImage: string; // schema-তে profilePhoto বাধ্যতামূলক, তাই এখানেও
 };
+
+export type IAdmin = {
+  userId: IUser;
+  name: string;
+  phoneNumber: string;
+  profileImage: string;
+};

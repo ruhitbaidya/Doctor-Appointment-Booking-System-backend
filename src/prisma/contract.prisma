@@ -23,6 +23,7 @@ model Admin {
   user         User                       @relation(fields: [userId], references: [id])
   phoneNumber  String
   profileImage String
+  isDelete     Boolean                    @default(false)
   createdAt    temporal.createdAtString()
   updatedAt    temporal.updatedAtString()
 }
